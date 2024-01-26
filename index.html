@@ -1,0 +1,790 @@
+<!doctype html>
+<html class="h-100" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="description" content="SEOULIST LAB">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <meta name="generator" content="Eleventy v2.0.0">
+  <meta name="HandheldFriendly" content="true">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+  <title>SEOULIST LAB</title>
+
+
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'>
+  <link rel='stylesheet' href='https://demo.themesberg.com/pixel-pro/css/pixel.css'>
+  <link rel="stylesheet" href="css/theme.min.css">
+
+  <style>
+    /* inter-300 - latin */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-300.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-300.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    /* inter-400 - latin */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-regular.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-regular.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-500.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-500.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-700.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-700.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+  </style>
+
+<style type="text/css">
+body{
+  margin-top:20px;
+  background:#eee;
+}
+
+.timeline {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  position: relative
+}
+
+.timeline:before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  width: 5px;
+  background: #2d353c;
+  left: 20%;
+  margin-left: -2.5px
+}
+
+.timeline>li {
+  position: relative;
+  min-height: 50px;
+  padding: 20px 0
+}
+
+.timeline .timeline-time {
+  position: absolute;
+  left: 0;
+  width: 18%;
+  text-align: right;
+  top: 30px
+}
+
+.timeline .timeline-time .date,
+.timeline .timeline-time .time {
+  display: block;
+  font-weight: 600
+}
+
+.timeline .timeline-time .date {
+  line-height: 16px;
+  font-size: 12px
+}
+
+.timeline .timeline-time .time {
+  line-height: 24px;
+  font-size: 20px;
+  color: #242a30
+}
+
+.timeline .timeline-icon {
+  left: 15%;
+  position: absolute;
+  width: 10%;
+  text-align: center;
+  top: 40px
+}
+
+.timeline .timeline-icon a {
+  text-decoration: none;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  border-radius: 20px;
+  background: #d9e0e7;
+  line-height: 10px;
+  color: #fff;
+  font-size: 14px;
+  border: 5px solid #2d353c;
+  transition: border-color .2s linear
+}
+
+.timeline .timeline-body {
+  margin-left: 23%;
+  margin-right: 17%;
+  background: #fff;
+  position: relative;
+  padding: 20px 25px;
+  border-radius: 6px
+}
+
+.timeline .timeline-body:before {
+  content: '';
+  display: block;
+  position: absolute;
+  border: 10px solid transparent;
+  border-right-color: #fff;
+  left: -20px;
+  top: 20px
+}
+
+.timeline .timeline-body>div+div {
+  margin-top: 15px
+}
+
+.timeline .timeline-body>div+div:last-child {
+  margin-bottom: -20px;
+  padding-bottom: 20px;
+  border-radius: 0 0 6px 6px
+}
+
+.timeline-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e2e7eb;
+  line-height: 30px
+}
+
+.timeline-header .userimage {
+  float: left;
+  width: 34px;
+  height: 34px;
+  border-radius: 40px;
+  overflow: hidden;
+  margin: -2px 10px -2px 0
+}
+
+.timeline-header .username {
+  font-size: 16px;
+  font-weight: 600
+}
+
+.timeline-header .username,
+.timeline-header .username a {
+  color: #2d353c
+}
+
+.timeline img {
+  max-width: 100%;
+  display: block
+}
+
+.timeline-content {
+  letter-spacing: .25px;
+  line-height: 18px;
+  font-size: 13px
+}
+
+.timeline-content:after,
+.timeline-content:before {
+  content: '';
+  display: table;
+  clear: both
+}
+
+.timeline-title {
+  margin-top: 0
+}
+
+.timeline-footer {
+  background: #fff;
+  border-top: 1px solid #e2e7ec;
+  padding-top: 15px
+}
+
+.timeline-footer a:not(.btn) {
+  color: #575d63
+}
+
+.timeline-footer a:not(.btn):focus,
+.timeline-footer a:not(.btn):hover {
+  color: #2d353c
+}
+
+.timeline-likes {
+  color: #6d767f;
+  font-weight: 600;
+  font-size: 12px
+}
+
+.timeline-likes .stats-right {
+  float: right
+}
+
+.timeline-likes .stats-total {
+  display: inline-block;
+  line-height: 20px
+}
+
+.timeline-likes .stats-icon {
+  float: left;
+  margin-right: 5px;
+  font-size: 9px
+}
+
+.timeline-likes .stats-icon+.stats-icon {
+  margin-left: -2px
+}
+
+.timeline-likes .stats-text {
+  line-height: 20px
+}
+
+.timeline-likes .stats-text+.stats-text {
+  margin-left: 15px
+}
+
+.timeline-comment-box {
+  background: #f2f3f4;
+  margin-left: -25px;
+  margin-right: -25px;
+  padding: 20px 25px
+}
+
+.timeline-comment-box .user {
+  float: left;
+  width: 34px;
+  height: 34px;
+  overflow: hidden;
+  border-radius: 30px
+}
+
+.timeline-comment-box .user img {
+  max-width: 100%;
+  max-height: 100%
+}
+
+.timeline-comment-box .user+.input {
+  margin-left: 44px
+}
+
+.lead {
+  margin-bottom: 20px;
+  font-size: 21px;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.text-secondary:hover {
+  color: rgb(138,138,142)!important;
+}
+
+.text-danger, .text-red {
+  color: #ff5b57!important;
+}
+
+@import url(//fonts.googleapis.com/css?family=Montserrat:300,500);
+.team4 {
+  font-family: "Montserrat", sans-serif;
+	color: #8d97ad;
+  font-weight: 300;
+}
+
+.team4 h1, .team4 h2, .team4 h3, .team4 h4, .team4 h5, .team4 h6 {
+  color: #3e4555;
+}
+
+.team4 .font-weight-medium {
+	font-weight: 500;
+}
+
+.team4 h5 {
+    line-height: 22px;
+    font-size: 18px;
+}
+
+.team4 .subtitle {
+    color: #8d97ad;
+    line-height: 24px;
+		font-size: 13px;
+}
+
+.team4 ul li a {
+  color: #8d97ad;
+  padding-right: 15px;
+  -webkit-transition: 0.1s ease-in;
+  -o-transition: 0.1s ease-in;
+  transition: 0.1s ease-in;
+}
+
+.team4 ul li a:hover {
+  -webkit-transform: translate3d(0px, -5px, 0px);
+  transform: translate3d(0px, -5px, 0px);
+	color: #316ce8;
+}
+</style>
+
+</head>
+
+<body class="bg-black text-white mt-0" data-bs-spy="scroll" data-bs-target="#navScroll">
+
+  <nav id="navScroll" class="navbar navbar-dark bg-black fixed-top px-vw-5" tabindex="0">
+    <div class="container pe-md-4 fs-4 col-12 col-md-auto text-center" style="width:100%">
+        <a class="navbar-brand" href="index.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-stack"
+            viewBox="0 0 16 16">
+            <path
+              d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.598.598 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.598.598 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.598.598 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535L7.733.063z" />
+            <path
+              d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.598.598 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.659z" />
+          </svg>
+          <span class="ms-md-1 mt-1 fw-bolder me-md-5">SEOULIST LAB</span>
+        </a>
+        <a href="contact.html" class="btn btn-outline-light">
+          <small>Contact</small>
+        </a>    
+    </div>
+  </nav>
+
+  
+  <main>
+    <div class="top-0 px-vw-5" style="height:80px"></div>
+    <div class="w-100 overflow-hidden position-relative bg-black text-white" style="cursor:default;" data-aos="fade">
+      <div class="position-absolute w-100 h-100 bg-black opacity-75 top-30 start-0"></div>
+      <div class="container py-vh-4 position-relative mt-5 px-vw-5 text-center">
+        <div class="row d-flex align-items-center justify-content-center py-vh-5" style="min-width:530px">
+          <div class="col-12 col-xl-10">
+            <span class="h5 text-secondary fw-lighter">We are SEOULIST</span>
+            <h1 class="display-huge mt-3 mb-3 lh-1">비전을 모아, 꿈을 현실로.</h1>
+          </div>
+          <div class="col-12 col-xl-8">
+            <p class="lead text-secondary">서울대 포스텍 인재 5인으로 구성된 SEOULIST LAB에서는, 공학과 인문학의 교차점에서 현실 세계의 문제를 해결하고, 인류에게 특별한 가치를 줄 수 있는 기술을 탐색하고 있습니다.</p>
+          </div>
+          <div class="col-12 text-center">
+            <a href="#" class="btn btn-xl btn-light">Contact
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-arrow-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- <div class="w-100 position-relative bg-black text-white bg-cover d-flex align-items-center">
+      <div class="container-fluid px-vw-5">
+        <div class="position-absolute w-100 h-50 bg-dark bottom-0 start-0"></div>
+        <div class="row d-flex align-items-center position-relative justify-content-center px-0 g-5">
+          <div class="col-12 col-lg-6">
+            <img src="img/webp/abstract18.webp" width="2280" height="1732" alt="abstract image"
+              class="img-fluid position-relative rounded-5 shadow" data-aos="fade-up">
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <img src="img/webp/abstract6.webp" width="1116" height="1578" alt="abstract image"
+              class="img-fluid position-relative rounded-5 shadow" data-aos="fade-up" data-aos-duration="2000">
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <img src="img/webp/abstract9.webp" width="1116" height="848" alt="abstract image"
+              class="img-fluid position-relative rounded-5 shadow" data-aos="fade-up" data-aos-duration="3000">
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- 성과 연혁 부분 시작-->
+    <div class="bg-dark">
+      <div class="container px-vw-5 py-vh-5">
+
+        <h2 class="display-3">AI 개발, 창업 역량을 쌓아가며</h2>
+        <h2 class="display-3">빠르게 성장하고 있습니다.</h2>
+
+        <div class="section section-md py-5">
+          <div class="container">
+            <div class="row mt-4">
+                <div class="col-md-10 mx-auto">
+                  <!-- Timeline -->
+                  <div class="timeline timeline-one" >
+                      <!-- Timeline Item 1 -->
+                      <div class="timeline-item" data-aos="zoom-in-right">
+                        <h5 class="my-3">2023.12: Kaggle 대회 상위 1.4% 달성</h5>
+                        <p>Kaggle Competition ‘NeurIPS 2023 - Machine Unlearning’<br/>
+                          전세계 1188팀 중 17등</p>
+                      </div>
+                      <!-- Timeline Item 2 -->
+                      <div class="timeline-item" data-aos="zoom-in-left">
+                        <h5 class="my-3">2023.12: IBK 창공 서울대캠프 3기 수료</h5>
+                      </div>
+                      <!-- Timeline Item 3 -->
+                      <div class="timeline-item" data-aos="zoom-in-right">
+                        <h5 class="my-3">2023.09: Kaggle 대회 상위 13% 달성</h5>
+                        <p>Kaggle Competition ‘Common Lit Evaluate Student Summaries’</p>
+                      </div>
+                      <!-- Timeline Item 4 -->
+                      <div class="timeline-item" data-aos="zoom-in-left">
+                        <h5 class="my-3">2023.08: 도전! K-스타트업 2023 부처통합<br/> 본선 진출</h5>
+                        <p>교육부 리그 진출, 경쟁률 31:1</p>
+                      </div>
+                      <!-- Timeline Item 5 -->
+                      <div class="timeline-item" data-aos="zoom-in-right">
+                        <h5 class="my-3">2023.06: 학생창업유망팀 300 도약 트랙<br/> 선정</h5>
+                        <p>교육부 장관 훈격 창업 유망팀 인증서 발급</p>
+                      </div>
+                      <!-- Timeline Item 6 -->
+                      <div class="timeline-item" data-aos="zoom-in-left">
+                        <h5 class="my-3">2023.04: 서울대 캠퍼스타운 HERE-RO 4<br/>사무실 입주</h5>
+                      </div>
+                      <!-- Timeline Item 6 -->
+                      <div class="timeline-item" data-aos="zoom-in-right">
+                        <h5 class="my-3">2023.02: SEOULIST 결성</h5>
+                      </div>
+                  </div>
+                  <!--End of Timeline-->
+                </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <!-- 성과 연혁 부분 끝-->
+
+    <!-- 팀 소개 부분 시작-->
+    <div class="bg-black py-vh-3">
+      <div class="container bg-black px-vw-5 py-vh-3 rounded-5 shadow">
+
+        <h2 class="display-3">서울대 포스텍 인재 5명으로 구성되어</h2> 
+        <h2 class="display-3">높은 재능 밀도와 시너지를 보유하고 있습니다.</h2>
+        <br>
+
+        <div class="py-5 team4">
+          <div class="container" style="display: flex;justify-content: center;align-items: center;">
+            <div class="row" style="justify-content: center;max-width: 900px;">
+              <!-- column  -->
+              <div class="mb-4" style="width:250px" data-aos="zoom-in-up">
+                <!-- Row -->
+                <div class="row">
+                  <div class="col-md-12">
+                    <img src="./img/한관엽.png" alt="wrapkit" class="img-fluid rounded-circle" />
+                  </div>
+                  <div class="col-md-12 text-center">
+                    <div class="pt-2">
+                      <h5 class="mt-4 font-weight-medium mb-0">한관엽</h5>
+                      <h6 class="subtitle mb-3">대표</h6>
+                      <p>서울대학교 컴퓨터공학부<br>& 벤처경영학<br>
+                      한성과학고등학교 졸업<br>
+                      Visualcamp 개발팀•연구팀<br>인턴십 </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Row -->
+              </div>
+              <!-- column  -->
+              <!-- column  -->
+              <div class="mb-4" style="width:250px" data-aos="zoom-in-up">
+                <!-- Row -->
+                <div class="row">
+                  <div class="col-md-12">
+                    <img src="./img/정상현.png" alt="wrapkit" class="img-fluid rounded-circle" />
+                  </div>
+                  <div class="col-md-12 text-center">
+                    <div class="pt-2">
+                      <h5 class="mt-4 font-weight-medium mb-0">정상현</h5>
+                      <h6 class="subtitle mb-3">개발</h6>
+                      <p>서울대학교 컴퓨터공학부<br>
+                      인천과학예술영재학교 졸업</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Row -->
+              </div>
+              <!-- column  -->
+              <!-- column  -->
+              <div class="mb-4" style="width:250px" data-aos="zoom-in-up">
+                <!-- Row -->
+                <div class="row">
+                  <div class="col-md-12">
+                    <img src="./img/황민혁.png" alt="wrapkit" class="img-fluid rounded-circle" />
+                  </div>
+                  <div class="col-md-12 text-center">
+                    <div class="pt-2">
+                      <h5 class="mt-4 font-weight-medium mb-0">황민혁</h5>
+                      <h6 class="subtitle mb-3">개발</h6>
+                      <p>서울대학교 컴퓨터공학부</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Row -->
+              </div>
+              <!-- column  -->
+              <!-- column  -->
+              <div class="mb-4" style="width:250px" data-aos="zoom-in-up">
+                <!-- Row -->
+                <div class="row">
+                  <div class="col-md-12">
+                    <img src="./img/황재민.png" alt="wrapkit" class="img-fluid rounded-circle" />
+                  </div>
+                  <div class="col-md-12 text-center">
+                    <div class="pt-2">
+                      <h5 class="mt-4 font-weight-medium mb-0">황재민</h5>
+                      <h6 class="subtitle mb-3">기획</h6>
+                      <p>서울대학교 정치외교학부<br>
+                        하나고등학교 졸업</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Row -->
+              </div>
+              <!-- column  -->
+              <!-- column  -->
+              <div class="mb-4" style="width:250px" data-aos="zoom-in-up">
+                <!-- Row -->
+                <div class="row">
+                  <div class="col-md-12">
+                    <img src="./img/고평강.png" alt="wrapkit" class="img-fluid rounded-circle" />
+                  </div>
+                  <div class="col-md-12 text-center">
+                    <div class="pt-2">
+                      <h5 class="mt-4 font-weight-medium mb-0">고평강</h5>
+                      <h6 class="subtitle mb-3">기획</h6>
+                      <p>포스텍 산업경영공학과<br>
+                        한성과학고등학교 졸업</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Row -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 팀 소개 부분 끝-->
+
+    <!-- 역량 소개 부분 시작-->
+    <div class="bg-dark">
+      <div class="container px-vw-5 py-vh-5">
+
+        <h2 class="display-3">SEOULST LAB은 다음의 미션과 역량을 <br>기반으로 합니다.</h2> 
+
+        <div class="section section-md py-5" style="display: flex;justify-content: center;align-items: center;">
+          <div class="container">
+            <h2 class="display-5" style="display:flex; justify-content: center;margin: auto;">Mission : Enhancing Human Capability</h2>
+            <br>
+            <p  style="display:flex; justify-content: center;margin: auto;color: #8d97ad">인간 보다 뛰어난 기계 지능의 등장에 동의하지만, 인간을 대체하기 보다 기계와 공존하는 미래를 그립니다.<br>
+              한계 없는 기억력, 대용량 처리 능력 등 컴퓨팅의 비교 우위를 통해 인간 능력을 보완 및 강화하고자 합니다.
+              </p>
+              <div class="py-5 team4" style="padding-bottom: 0px!important;;">
+                <div class="container" style="display: flex;justify-content: center;align-items: center;">
+                  <div class="row" style="justify-content: center;max-width: 900px;">
+                    <!-- column  -->
+                    <div class="mb-4" style="width:250px" data-aos="zoom-in-right">
+                      <!-- Row -->
+                      <div class="row">
+                        <div class="col-md-12 text-center">
+                          <div class="pt-2">
+                            <h5 class="font-weight-medium mb-2" style="color: white">Agility & Steadiness</h5>
+                            <span class="material-symbols-outlined" style="font-size: 48px;">rocket_launch</span>
+                            <h6 class="subtitle mb-3">민첩한 실행력과 끈질긴 문제해결</h6>
+                            <p>신속하게 실행하고,<br>
+                              책임감 있게 완수합니다.
+                               </p>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Row -->
+                    </div>
+                    <!-- column  -->
+                    <!-- column  -->
+                    <div class="mb-4" style="width:250px" data-aos="zoom-in-up">
+                      <!-- Row -->
+                      <div class="row">
+                        <div class="col-md-12 text-center">
+                          <div class="pt-2">
+                            <h5 class="font-weight-medium mb-2" style="color: white">Z Perspective</h5>
+                            <span class="material-symbols-outlined" style="font-size: 48px;">Psychology</span>
+                            <h6 class="subtitle mb-3">열린 사고 방식, 끊임없는 아이디어 창출</h6>
+                            <p>트렌드와 가장 가까운 <br>세대임과 동시에, <br>다양한 학제적 배경을 <br>가지고 있습니다.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Row -->
+                    </div>
+                    <!-- column  -->
+                    <!-- column  -->
+                    <div class="mb-4" style="width:250px" data-aos="zoom-in-left">
+                      <!-- Row -->
+                      <div class="row">
+                        <div class="col-md-12 text-center">
+                          <div class="pt-2">
+                            <h5 class="font-weight-medium mb-2" style="color: white">Learning Attitude</h5>
+                            <span class="material-symbols-outlined" style="font-size: 48px;">School</span>
+                            <h6 class="subtitle mb-3">일관된 배우는 태도</h6>
+                            <p>전체 과정에서<br> 모르는 부분을 
+                              파악하고,<br> 빠르게 학습하는 
+                              태도를<br> 유지합니다.
+                              </p>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Row -->
+                    </div>
+                    <!-- column  -->
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 역량 소개 부분 끝-->
+
+    <!-- 포트폴리오 소개 부분 시작-->
+    <div class="bg-black">
+      <div class="container px-vw-5 py-vh-5">
+        <h2 class="display-3">AI 관련 제품 3개를 기획 및 개발한 이력이 있습니다.</h2>
+        <div class="row d-flex align-items-center">
+        </div>
+      </div>
+
+    </div>
+    <!-- 포트폴리오 소개 부분 끝-->
+  </main>
+
+  <footer class="bg-black border-top border-dark">
+    <div class="container py-vh-4 text-secondary fw-lighter">
+      <div class="row">
+        <div class="col-12 col-lg-5 py-4 text-center text-lg-start">
+          <a class="navbar-brand pe-md-4 fs-4 col-12 col-md-auto text-center" href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-stack"
+              viewBox="0 0 16 16">
+              <path
+                d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.598.598 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.598.598 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.598.598 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535L7.733.063z" />
+              <path
+                d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.598.598 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.659z" />
+            </svg>
+            <span class="ms-md-1 mt-1 fw-bolder me-md-5">SEOULIST LAB</span>
+          </a>
+
+        </div>
+        <div class="col border-end border-dark">
+          <span class="h6">Company</span>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">About us</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">Legal</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">Career</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col border-end border-dark">
+          <span class="h6">Services</span>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">Products</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">Customers</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">Success Stories</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">More</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col">
+          <span class="h6">Support</span>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">About us</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">Legal</a>
+            </li>
+
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">Career</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800, // values from 0 to 3000, with step 50ms
+    });
+  </script>
+  <script>
+    let scrollpos = window.scrollY;
+    const header = document.querySelector(".navbar");
+    const header_height = header.offsetHeight;
+
+    const add_class_on_scroll = () => header.classList.add("scrolled", "shadow-sm");
+    const remove_class_on_scroll = () => header.classList.remove("scrolled", "shadow-sm");
+
+    window.addEventListener('scroll', function () {
+      scrollpos = window.scrollY;
+
+      if (scrollpos >= header_height) { add_class_on_scroll(); }
+      else { remove_class_on_scroll(); }
+
+      console.log(scrollpos);
+    })
+  </script>
+
+</body>
+
+</html>
