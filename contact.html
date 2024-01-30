@@ -353,14 +353,10 @@
                 type: "POST",
                 url: url,
                 data: {
-                    '회사(기관)명':document.getElementById('name').value,
-                    '전화번호':document.getElementById('phonenumber').value,
-                    '메일':document.getElementById('mail').value,
-                    '기타사항':document.getElementById('etc').value,
-                },
-                beforeSend : function(xhr){
-                    xhr.setRequestHeader("ApiKey", "asdfasxdfasdfasdf"); 
-                    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                    '회사(기관)명':document.getElementById('name').value.toString(),
+                    '전화번호':document.getElementById('phonenumber').value.toString(),
+                    '메일':document.getElementById('mail').value.toString(),
+                    '기타사항':document.getElementById('etc').value.toString(),
                 },
                 success: function(response) {
                     popup('제출되었습니다!')
