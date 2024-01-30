@@ -1,0 +1,373 @@
+<!doctype html>
+<html class="h-100" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+  <meta name="description" content="SEOULIST LAB">
+  <meta name="generator" content="Eleventy v2.0.0">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="image" content="img/favicon.png">
+
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
+  <title>SEOULIST LAB</title>
+
+
+
+    
+  <style>
+    /* inter-300 - latin */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 300;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-300.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-300.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    /* inter-400 - latin */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-regular.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-regular.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-500.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-500.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: local(''),
+        url('fonts/inter-v12-latin-700.woff2') format('woff2'),
+        /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/inter-v12-latin-700.woff') format('woff');
+      /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    }
+  </style>
+
+  <style>
+    body {
+        --primary: #5a72ea;
+        --secondary: #9cacff;
+        --white: #fff;
+        --gray: #9b9b9b;
+    }
+    .form__group {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 40%;
+    }
+
+    .form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid var(--gray);
+    outline: 0;
+    font-size: 1rem;
+    color: var(--white);
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.3s;
+    }
+
+    .form__field::placeholder {
+        color: transparent;
+    }
+
+    .form__field:placeholder-shown ~ .form__label {
+        font-size: 1rem;
+        cursor: text;
+        top: 20px;
+    }
+
+    .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.3s;
+    font-size: 0.8rem;
+    color: var(--gray);
+    }
+
+    .form__field:focus {
+        padding-bottom: 6px;  
+        font-weight: 700;
+        border-width: 3px;
+        border-image: linear-gradient(to right, var(--primary),var(--primary));
+        border-image-slice: 1;
+    }
+
+    .form__field:focus ~ .form__label {
+        position: absolute;
+        top: 0;
+        display: block;
+        transition: 0.3s;
+        font-size: 0.8rem;
+        color: var(--gray);
+        font-weight:700;  
+    }
+
+    /* reset input */
+    .form__field:required, .form__field:invalid{
+        box-shadow:none;
+    }
+
+    #snackbar {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: #333; /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 7px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 50%; /* Center the snackbar */
+  bottom: 30px; /* 30px from the bottom */
+  font-size: 16px;
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;} 
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;} 
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+  </style>
+
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css'>
+<link rel='stylesheet' href='https://demo.themesberg.com/pixel-pro/css/pixel.css'>
+<link rel="stylesheet" href="css/theme.min.css">
+
+</head>
+
+<body class="bg-black text-white mt-0" data-bs-spy="scroll" data-bs-target="#navScroll">
+
+  <nav id="navScroll" class="navbar navbar-dark bg-black fixed-top px-vw-5" tabindex="0">
+    <div class="container pe-md-4 fs-4 col-12 col-md-auto text-center" style="width:100%">
+        <a class="navbar-brand" href="index.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-stack"
+            viewBox="0 0 16 16">
+            <path
+              d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.598.598 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.598.598 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.598.598 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535L7.733.063z" />
+            <path
+              d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.598.598 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.659z" />
+          </svg>
+          <span class="ms-md-1 mt-1 fw-bolder me-md-5">SEOULIST LAB</span>
+        </a>
+        <a href="contact.html" class="btn btn-outline-light" style="text-transform: none;">
+          <small>Contact</small>
+        </a>    
+    </div>
+  </nav>
+
+  
+  <main>
+    <div class="w-100 overflow-hidden position-relative bg-black text-white" style="cursor:default;" data-aos="fade">
+      <div class="position-absolute w-100 h-100 bg-black opacity-75 top-30 start-0"></div>
+      <div class="container py-vh-4 position-relative mt-5 px-vw-5 text-center">
+        <div class="row d-flex align-items-center justify-content-center py-vh-5" style="padding-top: 40px!important;">
+          <div class="col-12 col-xl-10" style="display: flex;justify-content: center;flex-direction: column;align-items: center;">
+            <h1 class="display-large mt-3 mb-3 lh-1" style="white-space : pre-wrap">Contact</h1>
+            <div class="form__group field">
+                <input type="input" class="form__field" placeholder="회사(기관)명*" name="name" id='name' required />
+                <label for="name" class="form__label">회사(기관)명*</label>
+            </div>
+
+            <div class="form__group field">
+                <input type="input" class="form__field" placeholder="전화번호*" name="phonenumber" id='phonenumber' required />
+                <label for="phonenumber" class="form__label">전화번호*</label>
+            </div>
+
+            <div class="form__group field">
+                <input type="input" class="form__field" placeholder="메일*" name="mail" id='mail' required />
+                <label for="mail" class="form__label">메일*</label>
+            </div>
+
+            <div class="form__group field">
+                <input type="input" class="form__field" placeholder="기타사항" name="etc" id='etc' required />
+                <label for="etc" class="form__label">기타사항</label>
+            </div>
+          </div>
+          <div style="height: 30px;"></div>
+          <div class="col-12 text-center">
+            <button onclick="submit()" class="btn btn-xl btn-light">Submit
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-arrow-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div id="snackbar">Some text some message..</div>
+  </main>
+
+  <footer class="bg-black border-top border-dark">
+    <div class="container py-vh-4 fw-lighter">
+      <div class="row">
+        <div class="col-12 col-lg-5 py-4 text-center text-lg-start" style="padding-top: 0px!important;">
+          <a class="navbar-brand pe-md-4 fs-4 col-12 col-md-auto text-center" href="index.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-stack"
+              viewBox="0 0 16 16">
+              <path
+                d="m14.12 10.163 1.715.858c.22.11.22.424 0 .534L8.267 15.34a.598.598 0 0 1-.534 0L.165 11.555a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.66zM7.733.063a.598.598 0 0 1 .534 0l7.568 3.784a.3.3 0 0 1 0 .535L8.267 8.165a.598.598 0 0 1-.534 0L.165 4.382a.299.299 0 0 1 0-.535L7.733.063z" />
+              <path
+                d="m14.12 6.576 1.715.858c.22.11.22.424 0 .534l-7.568 3.784a.598.598 0 0 1-.534 0L.165 7.968a.299.299 0 0 1 0-.534l1.716-.858 5.317 2.659c.505.252 1.1.252 1.604 0l5.317-2.659z" />
+            </svg>
+            <span class="ms-md-1 mt-1 fw-bolder me-md-5">SEOULIST LAB</span>
+          </a>
+          <p class="p" style="margin-bottom: 0px;font-size: 0.8rem;color: rgb(138,138,142)">비전을 모아, 꿈을 현실로. contact@seoul.ist</p>
+          <p class="p" style="font-size: 0.8rem;color: rgb(138,138,142)">© 2024. SEOULIST LAB Co. All rights reserved.</p>
+        </div>
+        <div class="col border-end border-dark">
+          <span class="h6"></span>
+        </div>
+        <div class="col border-end border-dark">
+          <span class="h6">Company</span>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+                <a href="#" class="link-fancy link-fancy-light">About us</a>
+              </li>
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">Portfolio</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col">
+          <span class="h6">Support</span>
+          <ul class="nav flex-column">
+            
+            <li class="nav-item">
+              <a href="#" class="link-fancy link-fancy-light">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800, // values from 0 to 3000, with step 50ms
+    });
+  </script>
+  <script>
+    let scrollpos = window.scrollY;
+    const header = document.querySelector(".navbar");
+    const header_height = header.offsetHeight;
+
+    const add_class_on_scroll = () => header.classList.add("scrolled", "shadow-sm");
+    const remove_class_on_scroll = () => header.classList.remove("scrolled", "shadow-sm");
+
+    window.addEventListener('scroll', function () {
+      scrollpos = window.scrollY;
+
+      if (scrollpos >= header_height) { add_class_on_scroll(); }
+      else { remove_class_on_scroll(); }
+
+      console.log(scrollpos);
+    })
+  </script>
+  <script>
+    function popup(message) {
+        // Get the snackbar DIV
+        var x = document.getElementById("snackbar");
+        x.innerText=message;
+        // Add the "show" class to DIV
+        x.className = "show";
+
+        // After 3 seconds, remove the show class from DIV
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    }
+    function submit() {
+        if(!document.getElementById('name').validity.valid) {
+            popup("회사(기관)명을 작성해주세요");
+        } else if(!document.getElementById('phonenumber').validity.valid) {
+            popup("전화번호를 작성해주세요");
+        } else if(!document.getElementById('mail').validity.valid) {
+            popup("메일주소를 작성해주세요");
+        } else {
+            let url = 'https://script.google.com/macros/s/AKfycbxCYhYRG0eZfCUAPJz7VigDwCWnYbyGCP2n8ZVIkw5CabSE6K2eyNEKqMxmVtphIwNm1Q/exec'
+            
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: {
+                    '회사(기관)명':document.getElementById('name').value,
+                    '전화번호':document.getElementById('phonenumber').value,
+                    '메일':document.getElementById('mail').value,
+                    '기타사항':document.getElementById('etc').value,
+                },
+                success: function(response) {
+                    popup('제출되었습니다!')
+                },
+                error: function(error) {
+                    popup('error')
+                }
+            });
+        }
+    }
+  </script>
+
+</body>
+
+</html>
