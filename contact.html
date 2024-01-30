@@ -346,7 +346,8 @@
         } else if(!document.getElementById('mail').validity.valid) {
             popup("메일주소를 작성해주세요");
         } else {
-            let url = 'https://script.google.com/macros/s/AKfycbxCYhYRG0eZfCUAPJz7VigDwCWnYbyGCP2n8ZVIkw5CabSE6K2eyNEKqMxmVtphIwNm1Q/exec'
+            popup("전송중..");
+            let url = 'https://script.google.com/macros/s/AKfycbxqXRyq1yywtkZjg31GLrMem5FVY9H_xVoDYXEjfjMgRYZyrLOKXXHlf6CXznXtZ_JQGA/exec'
             
             $.ajax({
                 type: "POST",
@@ -356,6 +357,10 @@
                     '전화번호':document.getElementById('phonenumber').value,
                     '메일':document.getElementById('mail').value,
                     '기타사항':document.getElementById('etc').value,
+                },
+                beforeSend : function(xhr){
+                    xhr.setRequestHeader("ApiKey", "asdfasxdfasdfasdf"); 
+                    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
                 },
                 success: function(response) {
                     popup('제출되었습니다!')
