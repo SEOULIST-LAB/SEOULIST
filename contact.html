@@ -221,9 +221,14 @@
           <div class="col-12 col-xl-10" style="display: flex;justify-content: center;flex-direction: column;align-items: center;">
             <h1 class="display-large mt-3 mb-3 lh-1" style="white-space : pre-wrap">Contact</h1>
             <div class="form__group field">
-                <input type="input" class="form__field" placeholder="회사(기관)명*" name="name" id='name' required />
-                <label for="name" class="form__label">회사(기관)명*</label>
+                <input type="input" class="form__field" placeholder="회사(기관)명*" name="office" id='office' required />
+                <label for="office" class="form__label">회사(기관)명*</label>
             </div>
+
+            <div class="form__group field">
+              <input type="input" class="form__field" placeholder="제안자 성함*" name="name" id='name' required />
+              <label for="name" class="form__label">제안자 성함*</label>
+          </div>
 
             <div class="form__group field">
                 <input type="input" class="form__field" placeholder="전화번호*" name="phonenumber" id='phonenumber' required />
@@ -236,8 +241,8 @@
             </div>
 
             <div class="form__group field">
-                <input type="input" class="form__field" placeholder="기타사항" name="etc" id='etc' required />
-                <label for="etc" class="form__label">기타사항</label>
+                <input type="input" class="form__field" placeholder="문의사항" name="etc" id='etc' required />
+                <label for="etc" class="form__label">문의사항</label>
             </div>
           </div>
           <div style="height: 30px;"></div>
@@ -339,8 +344,10 @@
         setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
     }
     function submit() {
-        if(!document.getElementById('name').validity.valid) {
+        if(!document.getElementById('office').validity.valid) {
             popup("회사(기관)명을 작성해주세요");
+        } else if(!document.getElementById('name').validity.valid) {
+            popup("성함을 입력해주세요");
         } else if(!document.getElementById('phonenumber').validity.valid) {
             popup("전화번호를 작성해주세요");
         } else if(!document.getElementById('mail').validity.valid) {
@@ -353,10 +360,11 @@
                 type: "POST",
                 url: url,
                 data: {
-                    '회사(기관)명':document.getElementById('name').value.toString(),
+                    '회사(기관)명':document.getElementById('office').value.toString(),
+                    '성함':document.getElementById('name').value.toString(),
                     '전화번호':document.getElementById('phonenumber').value.toString(),
                     '메일':document.getElementById('mail').value.toString(),
-                    '기타사항':document.getElementById('etc').value.toString(),
+                    '문의사항':document.getElementById('etc').value.toString(),
                 },
                 success: function(response) {
                     popup('제출되었습니다!')
